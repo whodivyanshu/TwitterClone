@@ -1,0 +1,40 @@
+.left{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+   justify-content: right;
+    align-items: flex-end;
+    /* border-right: 1px solid grey; */
+    height: 100%;
+    /* padding: 20px; */
+    /* width: 100vh; */
+    height: 100vh;
+}
+.left1{
+    padding: 20px 40px;
+    /* width: 100%; */
+}
+.logo{
+    margin-bottom: 40px;
+    width: 150px;
+    justify-content: left;
+}
+
+.left h1{
+    padding: 8px 20px;
+    cursor: pointer;
+    font-size: 30px;
+    /* background-color: white; */
+    margin: 20px;
+    text-align: center;
+    align-items: center;
+    border-radius: 50px;
+    /* width: 150px; */
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+.left h1:hover{
+    background-color: white;
+    color: black;
+}

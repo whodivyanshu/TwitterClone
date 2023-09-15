@@ -1,0 +1,33 @@
+.body{
+    width: 35vw;
+    height: 100vh;
+    border-left: 1px solid grey;
+    /* margin-left: 30%; */
+    margin: auto;
+    border-right: 1px solid grey;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    align-items: center;
+    border-bottom: 1px solid grey;
+}
+.header h1{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.header button{
+    padding: 10px 20px;
+    font-size: 17px;
+    border: 1px solid grey;
+    font-weight: 700;
+    border-radius: 5px;
+}
+
+.header button img{
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    
+}
+
