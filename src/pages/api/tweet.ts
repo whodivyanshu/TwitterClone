@@ -9,7 +9,7 @@ export default async function handler(
 ) {
     if (req.method === 'POST') {
         try {
-            const { username, tweetContent, likeCount, retweetCount, tweetDate } = req.body;
+            const { username, tweetContent, newDate } = req.body;
 
             // Validate input data here (e.g., check if required fields are present)
 
@@ -19,9 +19,9 @@ export default async function handler(
                 const newTweet = await prisma.tweet.create({
                     data: {
                         tweetContent,
-                        likeCount,
-                        retweetCount,
-                        tweetDate,
+                        likeCount: 0,
+                        retweetCount: 0,
+                        tweetDate: newDate,
                         user: {
                             connect: {
                                 username

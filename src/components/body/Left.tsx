@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import styles from './left.module.css';
 import Image from 'next/image';
 import { useSession, signIn, signOut } from 'next-auth/react';
+import Link from 'next/link';
 
 const Left = () => {
   const { data: session } = useSession();
@@ -34,7 +35,9 @@ const Left = () => {
         </div>
         <h1>Home</h1>
         <h1>About</h1>
-        <h1>Github</h1>
+        <Link href="http://github.com/whodivyanshu/TwitterClone" target='_blank'>
+          <h1>Github</h1>
+        </Link>
         {session ? (
           <h1 onClick={async () => {
             try {
