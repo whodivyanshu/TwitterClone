@@ -2,22 +2,30 @@
 import React from 'react'
 import Styles from "./tweet.module.css"
 import Image from 'next/image'
+import { profile } from 'console';
+import { useSession } from 'next-auth/react';
 type TweetProps = {
   username: string;
   likeCount: number;
   retweetCount: number;
-  tweetcontent: string,
+  tweetcontent: string;
+  profilePicture: string;
 };
 
-const Tweet: React.FC<TweetProps> = ({ username, likeCount, retweetCount, tweetcontent }) => {
+const Tweet: React.FC<TweetProps> = ({ username, likeCount, retweetCount, tweetcontent, profilePicture }) => {
+  const { data: session } = useSession();
+  const profilePicture1 = session?.user?.image;
+  console.log(profilePicture)
+  const image = profilePicture
   return (
     <div className={Styles.tweet} >
       <div className={Styles.tweetContent} >
 
         <div className={Styles.name}>
-          <div className={Styles.logo}>
-            D
-          </div>
+          {/* <div className={Styles.logo}> */}
+          <img src={image} className={Styles.logo} width="24" height="24" alt="logo" />
+
+          {/* </div> */}
           <h3>{username}</h3>
           <p>14 Sep</p>
         </div>
@@ -47,13 +55,17 @@ const Tweet: React.FC<TweetProps> = ({ username, likeCount, retweetCount, tweetc
         <button className={Styles.reactlike} >Like</button>
         <button className={Styles.reactcomment} >Comment</button>
       </div>
-      <div className={Styles.input}>
-        <div className={Styles.logo}>
-          D
+      {session && (
+        <div className={Styles.input}>
+          {/* <div className={Styles.logo}> */}
+          <img src={profilePicture1} className={Styles.logo} width="24" height="24" alt="logo" />
+
+
+          {/* </div> */}
+          <input className={Styles.input1} placeholder='Write a comment...' type="text" />
+          <img className={Styles.icon} width="24" height="24" src="https://img.icons8.com/material-rounded/24/3E9452/sent.png" alt="sent" />
         </div>
-        <input className={Styles.input1} placeholder='Write a comment...' type="text" />
-        <img className={Styles.icon} width="24" height="24" src="https://img.icons8.com/material-rounded/24/3E9452/sent.png" alt="sent" />
-      </div>
+      )}
     </div>
   )
 }

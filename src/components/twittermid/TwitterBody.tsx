@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Styles from './twitterbody.module.css';
 import Tweet from '../tweet/Tweet';
 import { useSession, signOut } from 'next-auth/react'; // Import the signOut function
+import { useRouter } from 'next/router';
 
 // Define the type for a single tweet
 type TweetType = {
@@ -10,9 +11,11 @@ type TweetType = {
   likeCount: number;
   retweetCount: number;
   tweetContent: string;
+  profilePicture: string;
 };
 
 const TwitterBody = () => {
+  const router = useRouter();
   const { data: session } = useSession(); // Destructure the session object
   const [tweets, setTweets] = useState<TweetType[]>([]);
   const [tweet, setTweet] = useState('');
@@ -39,6 +42,7 @@ const TwitterBody = () => {
   const handlePostTweet = () => {
     const username = session?.user?.name;
     const tweetContent = tweet;
+    const profilePicture = session?.user?.image;
     const date = new Date();
     const newDate = date.toISOString();
     const res = fetch('http://localhost:3000/api/tweet', {
@@ -46,10 +50,11 @@ const TwitterBody = () => {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ username, tweetContent, newDate })
+      body: JSON.stringify({ username, tweetContent, newDate, profilePicture })
     });
     setTweet('');
     setDisable(true);
+    router.reload();
   };
 
   const handleSignOut = async () => {
@@ -102,6 +107,7 @@ const TwitterBody = () => {
             likeCount={tweet.likeCount}
             retweetCount={tweet.retweetCount}
             tweetcontent={tweet.tweetContent}
+            profilePicture={tweet.profilePicture}
           />
         ))}
       </div>

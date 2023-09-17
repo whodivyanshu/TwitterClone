@@ -21,11 +21,12 @@ model User {
 }
 
 model Tweet {
-  id           Int      @id @default(autoincrement())
-  username     String
-  user         User     @relation(fields: [username], references: [username])
-  tweetContent String
-  likeCount    Int
-  retweetCount Int
-  tweetDate    DateTime @db.Timestamptz()
+  id             Int      @id @default(autoincrement())
+  username       String
+  user           User     @relation(fields: [username], references: [username])
+  tweetContent   String
+  profilePicture String
+  likeCount      Int
+  retweetCount   Int
+  tweetDate      DateTime @db.Timestamptz()
 }
