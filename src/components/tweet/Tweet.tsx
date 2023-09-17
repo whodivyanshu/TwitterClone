@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React from 'react'
 import Styles from "./tweet.module.css"
 import Image from 'next/image'
@@ -25,18 +26,18 @@ const Tweet: React.FC<TweetProps> = ({ username, likeCount, retweetCount, tweetc
         </div>
         <div className={Styles.react}>
           <div className={Styles.likes}>
-            {/* <Image width="20" height="20" src="https://img.icons8.com/ios/FFFFFF/50/like--v1.png" alt="like--v1"/> */}
+            <img width="20" height="20" src="https://img.icons8.com/ios/FFFFFF/50/like--v1.png" alt="like--v1" />
             <p>{likeCount}</p>
 
           </div>
           <div className={Styles.retweet}>
-            {/* <Image width="20" height="20" src="https://img.icons8.com/ios/FFFFFF/50/comments--v1.png" alt="comments--v1"/> */}
+            <img width="20" height="20" src="https://img.icons8.com/ios/FFFFFF/50/comments--v1.png" alt="comments--v1" />
             <p>{retweetCount}</p>
 
 
           </div>
           <div className={Styles.share}>
-            {/* <Image width="20" height="20" src="https://img.icons8.com/fluency-systems-filled/48/FFFFFF/forward-arrow.png" alt="forward-arrow"/> */}
+            <img width="20" height="20" src="https://img.icons8.com/fluency-systems-filled/48/FFFFFF/forward-arrow.png" alt="forward-arrow" />
             <p>Share</p>
           </div>
         </div>
@@ -51,7 +52,7 @@ const Tweet: React.FC<TweetProps> = ({ username, likeCount, retweetCount, tweetc
           D
         </div>
         <input className={Styles.input1} placeholder='Write a comment...' type="text" />
-        {/* <Image className={Styles.icon} width="24" height="24" src="https://img.icons8.com/material-rounded/24/3E9452/sent.png" alt="sent" /> */}
+        <img className={Styles.icon} width="24" height="24" src="https://img.icons8.com/material-rounded/24/3E9452/sent.png" alt="sent" />
       </div>
     </div>
   )
