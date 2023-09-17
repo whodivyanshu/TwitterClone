@@ -24,15 +24,6 @@ const TwitterBody = () => {
     <div className={Styles.body}>
       <div className={Styles.header}>
         <h1>Home</h1>
-        <button>
-          <Image
-            width="25"
-            height="25"
-            src="https://img.icons8.com/ios/50/FFFFFF/google-logo--v1.png"
-            alt="google-logo--v1"
-          />
-          Login
-        </button>
       </div>
       <div className="tweetbody">
         {tweets.map((tweet, index) => (
@@ -41,7 +32,7 @@ const TwitterBody = () => {
             username={tweet.username}
             likeCount={tweet.likeCount}
             retweetCount={tweet.retweetCount}
-            tweetcontent = {tweet.tweetContent}
+            tweetcontent={tweet.tweetContent}
           />
         ))}
       </div>
