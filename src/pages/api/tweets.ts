@@ -1,27 +1,7 @@
 import { prisma } from '@/lib/db';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-// Define types for the runMiddleware function parameters
-type MiddlewareFunction = (
-  req: NextApiRequest,
-  res: NextApiResponse,
-  fn: (result: unknown) => void
-) => void;
 
-async function runMiddleware(
-  req: NextApiRequest,
-  res: NextApiResponse,
-  fn: MiddlewareFunction
-) {
-  return new Promise<void>((resolve, reject) => {
-    fn(req, res, (result: unknown) => {
-      if (result instanceof Error) {
-        return reject(result);
-      }
-      return resolve();
-    });
-  });
-}
 
 export default async function handler(
   req: NextApiRequest,
