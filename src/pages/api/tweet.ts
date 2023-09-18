@@ -11,7 +11,6 @@ export default async function handler(
         try {
             const { username, tweetContent, newDate, profilePicture } = req.body;
 
-            // Validate input data here (e.g., check if required fields are present)
 
             const existingUser = await prisma.user.findUnique({ where: { username } });
 
@@ -21,7 +20,7 @@ export default async function handler(
                         tweetContent,
                         likeCount: 0,
                         retweetCount: 0,
-                        profilePicture,
+                        profilePicture: profilePicture,
                         tweetDate: newDate,
                         user: {
                             connect: {
