@@ -15,6 +15,7 @@ type TweetProps = {
 const Tweet: React.FC<TweetProps> = ({ username, likeCount, retweetCount, tweetcontent, profilePicture }) => {
   const { data: session } = useSession();
   const profilePicture1 = session?.user?.image;
+  const imgg = String(profilePicture1)
   console.log(profilePicture)
   const image = profilePicture
   return (
@@ -57,11 +58,9 @@ const Tweet: React.FC<TweetProps> = ({ username, likeCount, retweetCount, tweetc
       </div>
       {session && (
         <div className={Styles.input}>
-          {/* <div className={Styles.logo}> */}
-          <img src={profilePicture1} className={Styles.logo} width="24" height="24" alt="logo" />
+          <img src={imgg} className={Styles.logo} width="24" height="24" alt="logo" />
 
 
-          {/* </div> */}
           <input className={Styles.input1} placeholder='Write a comment...' type="text" />
           <img className={Styles.icon} width="24" height="24" src="https://img.icons8.com/material-rounded/24/3E9452/sent.png" alt="sent" />
         </div>
