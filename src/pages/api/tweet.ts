@@ -9,7 +9,7 @@ export default async function handler(
 ) {
     if (req.method === 'POST') {
         try {
-            const { username, tweetContent, newDate } = req.body;
+            const { username, tweetContent, newDate, profilePicture } = req.body;
 
             // Validate input data here (e.g., check if required fields are present)
 
@@ -21,6 +21,7 @@ export default async function handler(
                         tweetContent,
                         likeCount: 0,
                         retweetCount: 0,
+                        profilePicture,
                         tweetDate: newDate,
                         user: {
                             connect: {
