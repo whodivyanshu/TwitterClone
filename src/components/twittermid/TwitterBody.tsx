@@ -22,7 +22,7 @@ const TwitterBody = () => {
   const [disable, setDisable] = useState(true);
 
   useEffect(() => {
-    fetch('http://localhost:3000/api/tweets')
+    fetch('/api/tweets')
       .then((response) => response.json())
       .then((data: TweetType[]) => setTweets(data));
   }, []);
@@ -45,7 +45,7 @@ const TwitterBody = () => {
     const profilePicture = session?.user?.image;
     const date = new Date();
     const newDate = date.toISOString();
-    const res = fetch('http://localhost:3000/api/tweet', {
+    const res = fetch('/api/tweet', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

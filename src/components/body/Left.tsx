@@ -13,7 +13,7 @@ const Left = () => {
       const email = session?.user?.email;
       const name = session?.user?.name;
       const image = session?.user?.image;
-      const res = fetch('http://localhost:3000/api/user', {
+      const res = fetch('/api/user', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
